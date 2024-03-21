@@ -27,7 +27,7 @@ public class OpenAIRestController {
 
     @GetMapping("/chat2")
     public String chat2(String request) {
-        OpenAiApi openAiApi = new OpenAiApi("ff");
+        OpenAiApi openAiApi = new OpenAiApi("jh");
 
         OpenAiChatOptions options = new OpenAiChatOptions.Builder()
                 .withTemperature(0.8F)
