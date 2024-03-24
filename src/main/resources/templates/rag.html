@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat RAG</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <style>
         body {
             background-color: #f8f9fa;
@@ -16,14 +16,15 @@
         <div class="col-md-6">
             <div class="card shadow-lg p-3">
                 <div class="card-body">
-                    <h2 class="text-center mb-4">Chat RAG</h2>
+                    <h2 class="text-center mb-4">Ask question about your document - RAG</h2>
                     <form method="get" th:action="@{/rag}">
                         <div class="mb-3">
-                            <label for="question" class="form-label">Ask your question</label>
-                            <input type="text" class="form-control" id="question" name="question" th:value="${question}">
+                            <label class="form-label" for="question">Ask your question</label>
+                            <input class="form-control" id="question" name="question" th:value="${question}"
+                                   type="text">
                         </div>
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-info btn-lg">Search</button>
+                            <button class="btn btn-info btn-lg" type="submit">Search</button>
                         </div>
                     </form>
                     <div class="mt-4">
@@ -37,7 +38,7 @@
 </div>
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container text-center">
-        <span class="text-muted">Designed by Badr Kacimi : linkedin.com/in/badr-kacimi/</span>
+        <span class="text-muted">Badr Kacimi - 2024</span>
     </div>
 </footer>
 </body>

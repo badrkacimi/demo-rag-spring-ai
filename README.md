@@ -25,7 +25,7 @@ RAG implementation with Spring AI 0.8.1
 
 3. **Install dependencies:**
 
-    Place your pdfs in resources/pdfs/
+   Place your pdfs in resources/pdfs/
 
     ```bash
     docker compose up
@@ -36,7 +36,7 @@ RAG implementation with Spring AI 0.8.1
 1. **Run the project:**
 
    Run the project in your editor or in command shell after generating the jar
-   
+
    Check your postgres database, the user/password are in the compose yaml file
     ```bash
         http://localhost:5050/browser/
@@ -44,8 +44,7 @@ RAG implementation with Spring AI 0.8.1
 
 1. **Access the project:**
 
-    Open a web browser and go to [http://localhost:9090/rag](http://localhost:9090/rag)]
-
+   Open a web browser and go to [http://localhost:9090/rag](http://localhost:9090/rag)]
 
 ## License
 

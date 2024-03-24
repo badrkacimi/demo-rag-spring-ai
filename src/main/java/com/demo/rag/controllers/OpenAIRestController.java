@@ -34,6 +34,7 @@ public class OpenAIRestController {
 
         return openAIClient.getOpenAiChatClient().call(prompt).getResult().getOutput().getContent();
     }
+
     @GetMapping("/your-rag")
     public String chatRAG(String question) {
         return ragService.askLLM(question);

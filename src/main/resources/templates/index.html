@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Upload</title>
+    <link href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        .card-header {
+            border-radius: 20px 20px 0 0;
+            background-color: #009ca4;
+            color: #fff;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .card-body {
+            padding: 40px;
+        }
+        .form-label {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .form-control {
+            border-radius: 10px;
+            border-color: #ced4da;
+            box-shadow: none;
+        }
+        .btn-primary {
+            border-radius: 10px;
+            padding: 12px 30px;
+            font-weight: bold;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Upload your file and ask about it ! </h2>
+                </div>
+                <div class="card-body">
+                    <form action="/upload" enctype="multipart/form-data" id="uploadForm" method="post">
+                        <div class="mb-3">
+                            <label class="form-label" for="file">Choose File:</label>
+                            <input class="form-control" id="file" name="file" type="file">
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+        <span class="text-muted">Badr Kacimi - 2024</span>
+    </div>
+</footer>
+</body>
+</html>

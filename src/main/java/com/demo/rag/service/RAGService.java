@@ -11,10 +11,13 @@ import org.springframework.ai.reader.pdf.config.PdfDocumentReaderConfig;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -30,7 +33,7 @@ public class RAGService {
     private JdbcTemplate jdbcTemplate;
 
     public String askLLM(String query) {
-
+        //textEmbedding(pdfsResource);
         List<Document> similarities = vectorStore.similaritySearch(query);
         String systemMessageTemplate = """
                 Answer the following question based on the provided CONTEXT
@@ -46,21 +49,19 @@ public class RAGService {
         return openAiChatClient.getOpenAiChatClient().call(prompt).getResult().getOutput().getContent();
     }
 
-    public void textEmbedding(Resource[] resources) {
+    public void textEmbedding(MultipartFile file) throws IOException {
         jdbcTemplate.update("delete from vector_store");
-        StringBuilder content = new StringBuilder();
+        Resource resource = new InputStreamResource(file.getInputStream());
 
-        for (Resource resource : resources) {
-            //Convert to text
-            PdfDocumentReaderConfig config = PdfDocumentReaderConfig.defaultConfig();
-            PagePdfDocumentReader pdfDocumentReader = new PagePdfDocumentReader(resource, config);
-            List<Document> documentList = pdfDocumentReader.get();
-            content.append(documentList.stream().map(Document::getContent).collect(Collectors.joining("\n"))).append("\n");
-        }
+        //Convert to text
+        PdfDocumentReaderConfig config = PdfDocumentReaderConfig.defaultConfig();
+        PagePdfDocumentReader pdfDocumentReader = new PagePdfDocumentReader(resource, config);
+        List<Document> documentList = pdfDocumentReader.get();
+        String content = documentList.stream().map(Document::getContent).collect(Collectors.joining("\n"));
 
         //Split to chunks
         TokenTextSplitter tokenTextSplitter = new TokenTextSplitter();
-        List<String> chunks = tokenTextSplitter.split(content.toString(), 1000);
+        List<String> chunks = tokenTextSplitter.split(content, 1000);
         List<Document> chunksDocs = chunks.stream().map(Document::new).toList();
 
         //Integration/embedding
