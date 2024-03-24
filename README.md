@@ -6,7 +6,6 @@ RAG implementation with Spring AI 0.8.1
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
