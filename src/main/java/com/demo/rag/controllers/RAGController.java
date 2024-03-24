@@ -1,6 +1,5 @@
 package com.demo.rag.controllers;
 
-import com.demo.rag.Utils;
 import com.demo.rag.service.RAGService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,6 @@ public class RAGController {
 
     @Autowired
     private RAGService ragService;
-    private Utils utils;
 
     @GetMapping("/rag")
     public String index(@RequestParam(name = "question", defaultValue = "") String question, Model model) {
