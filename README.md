@@ -25,7 +25,13 @@ RAG implementation with Spring AI 0.8.1
 
 3. **Install dependencies:**
 
-   Place your pdfs in resources/pdfs/
+   Change the openAI key in applications properties by yours:
+
+    ```bash
+    spring.ai.openai.api-key=your api key
+    ```
+    
+   You need docker in your machine:
 
     ```bash
     docker compose up
@@ -44,7 +50,7 @@ RAG implementation with Spring AI 0.8.1
 
 1. **Access the project:**
 
-   Open a web browser and go to [http://localhost:9090/rag](http://localhost:9090/rag)]
+   Open a web browser and go to [http://localhost:9090/rag](http://localhost:9090/index)]
 
 ## License
 
