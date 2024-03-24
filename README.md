@@ -49,7 +49,7 @@ RAG implementation with Spring AI 0.8.1
 
 1. **Access the project:**
 
-   Open a web browser and go to [http://localhost:9090/rag](http://localhost:9090/index)]
+   Open a web browser and go to [http://localhost:9090/index](http://localhost:9090/index)]
 
 ## License
 
