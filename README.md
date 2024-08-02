@@ -47,9 +47,9 @@ RAG implementation with Spring AI 0.8.1
         http://localhost:5050/browser/
     ```
 
-1. **Access the project:**
+1. **Access the project UI:**
 
-   Open a web browser and go to [http://localhost:9090/index](http://localhost:9090/index)]
+   Open a web browser and go to [http://localhost:9090/index](http://localhost:9090/index)
 
 ## License
 
